@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>像素矿工 - Pixel Miner</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="game-area">
+            <canvas id="gameCanvas"></canvas>
+        </div>
+        <div id="side-panel">
+            <div class="panel-section">
+                <h2>⛏️ 像素矿工</h2>
+            </div>
+            <div class="panel-section">
+                <h3>📊 状态</h3>
+                <div class="stat-item">
+                    <span class="stat-label">深度:</span>
+                    <span id="depth-display">0 层</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">💰 金币:</span>
+                    <span id="gold-display">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">⛏️ 镐子:</span>
+                    <span id="pickaxe-display">木镐</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">梯子:</span>
+                    <span id="ladder-display">🪜 0</span>
+                </div>
+            </div>
+            <div class="panel-section">
+                <h3>🎒 背包</h3>
+                <div id="inventory-display"></div>
+            </div>
+            <div class="panel-section">
+                <h3>🏆 成就</h3>
+                <div id="achievements-display"></div>
+            </div>
+            <div class="panel-section">
+                <h3>🛒 商店</h3>
+                <div id="shop-display"></div>
+                <button id="shop-btn" class="game-btn">打开商店 (E)</button>
+            </div>
+            <div class="panel-section controls">
+                <h3>🎮 操作</h3>
+                <p>↑↓←→ / WASD: 移动</p>
+                <p>空格: 挖掘</p>
+                <p>E: 商店</p>
+                <p>R: 返回地面</p>
+                <p>T: 放置梯子</p>
+            </div>
+            <div class="panel-section">
+                <button id="settings-btn" class="game-btn">⚙️ 设置</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="shop-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>🛒 商店</h2>
+            <div id="shop-items"></div>
+            <button id="close-shop" class="game-btn">关闭 (E)</button>
+        </div>
+    </div>
+    
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content settings-content">
+            <h2>⚙️ 设置</h2>
+            <div class="settings-section">
+                <h3>🔊 音量控制</h3>
+                <div class="volume-control">
+                    <label for="volume-slider">音量:</label>
+                    <input type="range" id="volume-slider" min="0" max="100" value="50">
+                    <span id="volume-value">50%</span>
+                </div>
+            </div>
+            <div class="settings-section">
+                <h3>⌨️ 按键说明</h3>
+                <div class="key-bindings">
+                    <div class="key-row">
+                        <span class="key">↑ / W</span>
+                        <span class="key-desc">向上移动</span>
+                    </div>
+                    <div class="key-row">
+                        <span class="key">↓ / S</span>
+                        <span class="key-desc">向下移动</span>
+                    </div>
+                    <div class="key-row">
+                        <span class="key">← / A</span>
+                        <span class="key-desc">向左移动</span>
+                    </div>
+                    <div class="key-row">
+                        <span class="key">→ / D</span>
+                        <span class="key-desc">向右移动</span>
+                    </div>
+                    <div class="key-row">
+                        <span class="key">空格</span>
+                        <span class="key-desc">挖掘方块</span>
+                    </div>
+                    <div class="key-row">
+                        <span class="key">E</span>
+                        <span class="key-desc">打开/关闭商店</span>
+                    </div>
+                    <div class="key-row">
+                        <span class="key">R</span>
+                        <span class="key-desc">返回地面</span>
+                    </div>
+                    <div class="key-row">
+                        <span class="key">ESC</span>
+                        <span class="key-desc">关闭设置</span>
+                    </div>
+                </div>
+            </div>
+            <button id="close-settings" class="game-btn">关闭 (ESC)</button>
+        </div>
+    </div>
+    
+    <div id="start-screen" class="overlay">
+        <div class="overlay-content">
+            <h1>⛏️ 像素矿工</h1>
+            <p>向下挖掘，收集宝藏，升级装备！</p>
+            <button id="start-btn" class="game-btn large">开始游戏</button>
+            <button id="load-btn" class="game-btn">继续游戏</button>
+        </div>
+    </div>
+    
+    <script src="js/block.js"></script>
+    <script src="js/particle.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/sound.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
